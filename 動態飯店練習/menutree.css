@@ -1,0 +1,57 @@
+.tree input{
+    position: absolute;
+}
+
+.tree input ~ ul{
+    display: none;
+}
+
+.tree input:checked ~ ul{
+    display: block;
+}
+
+.tree li{
+    position: relative;
+    padding: 0 0 1px 1px;
+}
+
+.tree ul li{
+    padding: 1px 0 0 1px;
+}
+
+.tree_label{
+    position: relative;
+}
+.r1{
+    position: relative;
+    background: #fff;
+    width: 160px;
+    height: 47px;
+    bottom: 11px;
+}
+.r1 p{
+    font-size: 26px;
+    margin-top: 10px;
+}
+ul label{
+    cursor: pointer;
+    z-index: 99999;
+}
+.roomset_body{
+    margin-top: 40px;
+}
+.title{
+    margin-top: 80px;
+    width: 300px;
+}
+ul li{
+    list-style-type: none;
+    padding: 20px;
+    width: 300px;
+}
+li span{
+    cursor: auto;
+}
+span i{
+    cursor: pointer;
+}

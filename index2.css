@@ -1,0 +1,120 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "標楷體";
+}
+body{
+    background-color: antiquewhite;
+    user-select: none;
+}
+.topside{
+    width: 100%;
+    height: 100px;
+    background-color: #e0fff4;
+    position: fixed;
+    opacity: 0.9;
+    z-index: 99999;
+    border-bottom: 1px solid;
+}
+.top{
+    position: absolute;
+    height: 100%;
+}
+.topside .title{
+    font-size: 36px;
+    margin-top: 1.3%;
+    letter-spacing: 5px;
+}
+.bodyside{
+    margin-top: 100px;
+    height: 1200px;
+}
+.bodyside .title{
+    height: 100px;
+    font-size: 34px;
+    padding: 25px;
+    margin-left: 30px;
+    border-bottom: 2px solid;
+}
+.menu{
+    padding: 50px;
+}
+.img{
+    height: 200px;
+}
+.item_col{
+    padding: 20px;
+    height: 340px;
+    width: 280px;
+    background-color: white;
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.4);
+    transition: 0.6s;
+    border-radius: 20px;
+    cursor: help;
+}
+.item_col[content]:after{
+    content: attr(content);
+    position: absolute;
+    z-index: 1000;
+    padding: 6px 10px;
+    background-color: white;
+    border-radius: 10px;
+    width: 278px;
+    height: 95px;
+    left: 50px;
+    bottom: -20px;
+    font-size: 20px;
+    opacity: 0;
+    transition: 0.8s;
+}
+.item_col:hover:after{
+    opacity: 1;
+    bottom: -44px;
+}
+.item_col:hover{
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+.menuname{
+    font-size: 26px;
+}
+.dis{
+    font-size: 20px;
+}
+.price{
+    font-size: 28px;
+}
+.p1{
+    margin-left: 130px;
+    position: absolute;
+    margin-top: -40px;
+}
+.p2{
+    float: right;
+    margin-right: 20px;
+    color: red;
+}
+.info_letter{
+    margin-top: 4px;
+}
+.img{
+    background-size: 120% auto;
+    background-position: center center;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 10px;
+    transition-duration: 0.5s;
+}
+.img:hover{
+    background-size: 150% auto;
+}
+.img_del{
+    float: right;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.img_del:hover{
+    color: red;
+}
+.hl{
+    color: red;
+}

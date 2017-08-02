@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Hello World</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="menutree.css">
+        <link rel="stylesheet" href="gotop.css">
+    </head>
+
+    <body onload="start()">
+        <div id="app">
+            <div class="container-fluid">
+                <div id="toptop"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="row head">飯店資訊</div>
+                        <hr>
+                        <div class="row left">
+                            <div class="col-sm-12 left2">
+                                <ul class="room_set h4 tree">
+                                    <li class="rs">
+                                        <input type="checkbox" id="roomset">
+                                        <label for="roomset" class="r1"><p>房間設定</p></label>
+                                        <ul>
+                                            <li class="set_price h3">
+                                                <span class="tree_label" v-for="(room, id) in rooms">
+                                                    <div class="title">
+                                                        <p>{{ id + 1 }}. {{ room.name }} <i class="fa fa-trash" id="icon"></i></p>
+                                                    </div>
+                                                    <div class="roomset_body">
+                                                        房間名稱
+                                                        <input type="text" v-model="room.name" class="form-control t1">
+                                                    </div>
+                                                    <br>
+                                                    <div class="roomset_body">
+                                                        原價
+                                                        <input type="text" v-model="room.price" class="form-control t1">
+                                                    </div>
+                                                    <br>
+                                                    <div class="roomset_body">
+                                                        折扣調整
+                                                        <input type="text" v-model="room.discount" class="form-control t1">
+                                                    </div>
+                                                    <br>
+                                                    <div class="roomset_body">
+                                                        服務費折扣調整
+                                                        <input type="text" v-model="service_price" class="form-control t1">
+                                                    </div>
+                                                    <br>
+                                                    <div class="roomset_body">
+
+                                                        早餐
+                                                        <input type="checkbox" v-model="room.equipment.breakfast">
+                                                        <br>
+                                                        浴缸
+                                                        <input type="checkbox" v-model="room.equipment.bathtub">
+                                                        <br>
+                                                        WIFI
+                                                        <input type="checkbox" v-model="room.equipment.wifi">
+                                                    </div>
+                                                    <div class="roomset_body">
+                                                        圖片
+                                                        <input type="text" v-model="room.cover" class="form-control t1">
+                                                    </div>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="tree_label">
+                                                    <div class="adroom" @click="addroom">
+                                                        +新增房間
+                                                    </div>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gotop" onclick="location.href='#toptop'"></div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="row head">飯店清單</div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-4 letter" v-for="Myroom in rooms">
+                                <room v-bind:roomdata="Myroom" v-bind:hotel_service_price="service_price"></room>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <template id="room">
+            <div class="room_col">
+                <div class="cover" v-bind:style="hotel_picture">
+                    <h3>{{ roomdata.name }}</h3>
+                </div>
+                <div class="info">
+                    <h5>
+                        {{ dis }}折 + 10%服務費
+                        <i class="fa fa-cutlery" v-if="roomdata.equipment.breakfast"></i>
+                        <i class="fa fa-bath" v-if="roomdata.equipment.bathtub"></i>
+                        <i class="fa fa-wifi" v-if="roomdata.equipment.wifi"></i>
+                    </h5>
+                    <h4>TWD <s>{{ roomdata.price }}</s> -> <p>{{ final_price }}</p></h4>
+                </div>
+            </div>
+        </template>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            $("#icon").hover(function(){
+                $("#icon").attr('class', 'fa fa-trash-o'); 
+            }, function(){
+                $("#icon").attr('class', 'fa fa-trash');
+            });
+
+            function start(){
+                var $win = 
+                    $(window),
+                    $ad = $(".gotop").css('opacity', 0).show(),
+                    _width = $ad.width(),
+                    _height = $ad.height(),
+                    _diffY = 80, _diffX = 1800,
+                    _moveSpeed = 500;
+
+                $ad.css({
+                    top: $(document).height(),
+                    left: $win.width() - _width - _diffX,
+                    opacity: 1
+                });
+                $win.bind('scroll resize', function(){
+                    var $this = $(this);
+                    console.log(_width);
+                    // 控制 #abgne_float_ad 的移動
+                    $ad.stop().animate({
+                        top: $this.scrollTop() + $this.height() - _height - _diffY,
+                        left: $this.scrollLeft() + $this.width() - _width - _diffX
+                    }, _moveSpeed);
+                }).scroll();
+            }
+            
+            
+        </script>
+    </body>
+
+</html>

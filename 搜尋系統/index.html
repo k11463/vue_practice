@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>搜尋系統</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+              <br>
+               <div class="row">
+                   <div class="col-sm-12">
+                       <label for="">關鍵字</label>
+                       <input type="text" v-model="filter" class="form-control">
+                   </div>
+               </div>
+                <div class="row">
+                    <postbox :post="p" v-for="p in filtered_post"></postbox>
+                </div>
+            </div>
+        </div>
+
+        <template id="post">
+            <div class="postbox col-sm-4">
+                <div class="postbox_inner">
+                    <img v-bind:style="covercss" class="img">
+                    <h6 v-html="post.name_short"></h6>
+                    <h4 v-html="post.title"></h4>
+                    <p v-html="post.description">{{ post.description }}</p>
+                </div>
+            </div>
+        </template>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

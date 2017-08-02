@@ -1,0 +1,8 @@
+.gotop{
+    width: 80px;
+    height: 80px;
+    background-image: url("http://www.digitalfoto.it/themes/images/gotop.png");
+    background-size: cover;
+    position: absolute;
+    z-index: 99999;
+}

@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.img{
+    width: 368px;
+    background-size: cover;
+    height: 200px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+h4{
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+}
+.postbox{
+    margin-bottom: 10px;
+    padding: 20px 10px;
+}
+
+.postbox_inner{
+    border: 1px solid;
+    padding: 30px;
+    height: 500px;
+    overflow: auto;
+}
+p{
+    line-height: 45px;
+}
+.hl{
+    background-color: yellow;
+    color: red;
+    padding: 4px;
+}
