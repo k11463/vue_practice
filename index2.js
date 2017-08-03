@@ -105,15 +105,15 @@ var it = new Vue({
                     shipping: true
                 }
             });
-
             this.edit_id = this.items.length - 1;
         },
         del_item: (id)=>{
+            console.log(id);
             this.items.splice(id, 1);
-            if (this.edit_id > id){
+            if (this.edit_id >= id){
                 this.edit_id--;
             }
-            else if (this.items.length == 0){
+            if (this.items.length == 0){
                 this.items.push({
                     "name": "新商品",
                     "price": 0,
@@ -140,12 +140,14 @@ var it = new Vue({
                 });
                 return hasright;
             }).map((item)=>{
-                item.content = item.content.substr(0, 10);
+                var temp_item = JSON.parse(JSON.stringify(item));
                 
-                item.name = item.name.replace(itemobj.filter, "<span class='hl'>" + itemobj.filter + "</span>");
+                temp_item.content = temp_item.content.substr(0, 10);
                 
-                return item;
+                temp_item.name = temp_item.name.replace(itemobj.filter, "<span class='hl'>" + itemobj.filter + "</span>");
+                
+                return temp_item;
             })
         }
-    }
+    }    
 });
