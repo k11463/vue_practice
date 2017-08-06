@@ -4,6 +4,7 @@ var items = [
         "price": 160,
         "discount": 0.9,
         "content": "冷凍蔬菜加上秘傳醬料做成的炒飯",
+        "id": 0,
         "img": "img/6.jpg",
         equipment: {
             shipping: false
@@ -14,6 +15,7 @@ var items = [
         "price": 510,
         "discount": 0.4,
         "content": "用高級牛骨去熬七七四十九天",
+        "id": 1,
         "img": "img/3.jpg",
         equipment: {
             shipping: false
@@ -24,6 +26,7 @@ var items = [
         "price": 300,
         "discount": 0.7,
         "content": "裡面包的奶油香香甜甜",
+        "id": 2,
         "img": "img/5.jpg",
         equipment: {
             shipping: true
@@ -34,6 +37,7 @@ var items = [
         "price": 60,
         "discount": 0.3,
         "content": "台灣特產飲料",
+        "id": 3,
         "img": "img/2.jpg",
         equipment: {
             shipping: true
@@ -44,6 +48,7 @@ var items = [
         "price": 250,
         "discount": 0.5,
         "content": "長棍麵包",
+        "id": 4,
         "img": "img/4.jpg",
         equipment: {
             shipping: false
@@ -54,6 +59,7 @@ var items = [
         "price": 300,
         "discount": 0.8,
         "content": "雖然很苦 但是對身體很健康的茶",
+        "id": 5,
         "img": "img/1.jpg",
         equipment: {
             shipping: true
@@ -95,11 +101,13 @@ var it = new Vue({
     },
     methods: {
         add_item (){
+            this.id = this.items.length - 1;
             this.items.push({
                 "name": "新商品",
                 "price": 0,
                 "discount": 0,
                 "content": "",
+                "id": this.id,
                 "img": "",
                 equipment: {
                     shipping: true
@@ -107,11 +115,15 @@ var it = new Vue({
             });
             this.edit_id = this.items.length - 1;
         },
-        del_item: (id)=>{
-            console.log(id);
+        del_item (id){
             this.items.splice(id, 1);
-            if (this.edit_id >= id){
+            if (this.edit_id > id){
                 this.edit_id--;
+            }
+            for (var i = 0; i < this.items.length; i++){
+                if (this.items[i].id > id){
+                    this.items[i].id--
+                }
             }
             if (this.items.length == 0){
                 this.items.push({
@@ -131,7 +143,7 @@ var it = new Vue({
         filtered_item (){
             var itemobj = this;
             return this.items.filter((item)=>{
-                var tag = ["name", "content"];
+                var tag = ["name"];
                 var hasright = false;
                 tag.forEach((tag)=>{
                     if (item[tag].toLowerCase().indexOf(itemobj.filter) != -1){
