@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>購物網站設定</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="index2.css">
-        <link rel="stylesheet" href="leftSideBar.css">
-        <link rel="stylesheet" href="menutree.css">
-        <link rel="stylesheet" href="gotop.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body onload="start();">
-        <div id="app">
-            <div class="container-fluid">
-                <div id="alltop"></div>
-                <div class="gotop"></div>
-                <div class="row topside">
-                    <div class="col-lg-12 col-md-12 col-sm-12 top">
-                        <div class="title">牛舌馬羊購物網</div>
-                    </div>
+
+<head>
+    <meta charset="UTF-8">
+    <title>購物網站設定</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index2.css">
+    <link rel="stylesheet" href="leftSideBar.css">
+    <link rel="stylesheet" href="menutree.css">
+    <link rel="stylesheet" href="gotop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="start();">
+    <div id="app">
+        <div class="container-fluid">
+            <div id="alltop"></div>
+            <div class="gotop"></div>
+            <div class="row topside">
+                <div class="col-lg-12 col-md-12 col-sm-12 top">
+                    <div class="title">牛舌馬羊購物網</div>
                 </div>
-                <div class="row bodyside">
-                    <div class="col-lg-2 col-md-2 col-sm-2 naka left">
-                        <div class="row title_row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 title">
-                                <p>店面調整</p>
-                            </div>
+            </div>
+            <div class="row bodyside">
+                <div class="col-lg-2 col-md-2 col-sm-1 naka left">
+                    <div class="row title_row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 title">
+                            <p>店面調整</p>
                         </div>
-                        <div class="row">
-                            <div class="setting">
-                                <ul class="tree">
-                                    <li class="l_mar0">
-                                        <input type="checkbox" id="c1">
-                                        <label for="c1" class="l1"><p>商品調整</p></label>
-                                        <ul>
-                                            <li>
-                                                <span class="tree_label">
+                    </div>
+                    <div class="row">
+                        <div class="setting">
+                            <ul class="tree">
+                                <li class="l_mar0">
+                                    <input type="checkbox" id="c1">
+                                    <label for="c1" class="l1"><p>商品調整</p></label>
+                                    <ul>
+                                        <li>
+                                            <span class="tree_label">
                                                     <div class="setitem_opt">
                                                         <p>請選擇您要調整的商品</p>
                                                         <select id="setitem_opt" class="form-control" v-model="edit_id">
@@ -45,10 +47,10 @@
                                                         </select>
                                                     </div>
                                                 </span>
-                                            </li>
-                                            <hr>
-                                            <li>
-                                                <span class="tree_label" v-for="(item, id) in [items[edit_id]]">
+                                        </li>
+                                        <hr>
+                                        <li>
+                                            <span class="tree_label" v-for="(item, id) in [items[edit_id]]">
                                                     <div class="itemset_soto">
                                                         <div class="item_title">
                                                             <h3>{{ item.name }}</h3>
@@ -83,57 +85,54 @@
                                                         </div>
                                                     </div>
                                                 </span>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="l_mar">
-                                        <input type="checkbox" id="c2">
-                                        <label for="c2" class="l1" @click="add_item"><p>新增商品</p></label>
-                                    </li>
-                                    <li class="l_mar">
-                                        <input type="checkbox" id="c3">
-                                        <label for="c3" class="l1"><p>商品搜尋</p></label>
-                                        <ul>
-                                            <li>
-                                                <div class="item_search">
-                                                    <div class="big"></div>
-                                                    <input type="text" class="form-control search" v-model="filter">
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="l_mar">
+                                    <input type="checkbox" id="c2">
+                                    <label for="c2" class="l1" @click="add_item"><p>新增商品</p></label>
+                                </li>
+                                <li class="l_mar">
+                                    <input type="checkbox" id="c3">
+                                    <label for="c3" class="l1"><p>商品搜尋</p></label>
+                                    <ul>
+                                        <li>
+                                            <div class="item_search">
+                                                <div class="big"></div>
+                                                <input type="text" class="form-control search" v-model="filter">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-1 col-md-1 col-sm-1 naka">
+                <div class="col-lg-1 col-md-1 col-sm-1 naka">
 
-                    </div>
+                </div>
 
-                    <div class="col-lg-8 col-md-8 col-sm-8 naka">
-                        <div class="row title_row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 title">
-                                <p>商品瀏覽</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 menu" v-for="(item, id) in filtered_item">
-                                <item v-bind:item_data="item"
-                                      v-bind:id="id"
-                                      v-bind:del_item="del_item"
-                                      ></item>
-                            </div>
+                <div class="col-lg-8 col-md-8 col-sm-4 naka">
+                    <div class="row title_row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 title">
+                            <p>商品瀏覽</p>
                         </div>
                     </div>
-                    <div class="col-lg-1 col-md-1 col-sm-1 naka">
-
+                    <div class="row">
+                        <div class="col-lg-4 col-md-3 col-sm-2 menu" v-for="(item, id) in filtered_item">
+                            <item v-bind:item_data="item" v-bind:id="item.pid" v-bind:del_item="del_item"></item>
+                        </div>
                     </div>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 naka">
+
                 </div>
             </div>
         </div>
+    </div>
 
-        <template id="item">
+    <template id="item">
             <div class="item_col" v-bind:content='item_content'>
                 <div class="img" v-bind:style="item_image">
                     <div class="fa fa-remove img_del" @click="del_item(id)"></div>
@@ -153,10 +152,11 @@
             </div>
         </template>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="gotop.js"></script>
-        <script src="index2.js"></script>
-        <script src="gotop2.js"></script>
-    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="gotop.js"></script>
+    <script src="index2.js"></script>
+    <script src="gotop2.js"></script>
+</body>
+
 </html>

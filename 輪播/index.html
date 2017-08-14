@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>輪播</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="postarea">
+        <div class="posts" v-bind:style="mv_left">
+          <div class="postbox" v-for="index in 6">
+            <div class="cover" style="background-image: url('http://images.ali213.net/picfile/pic/2012-07-05/584_xiaoh42.jpg')">
+              <div class="infos">
+                <h1>美少女5</h1>
+                <h5>不行了~</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
