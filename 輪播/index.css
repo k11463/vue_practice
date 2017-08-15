@@ -18,8 +18,8 @@ html, body{
 }
 
 .postarea{
-  width: 1430px;
-  height: 460px;
+  width: 1630px;
+  height: 580px;
   white-space: nowrap;
 }
 
@@ -37,19 +37,31 @@ html, body{
 .cover{
   width: 430px;
   height: 100%;
-  margin-left: 500px;
+  margin-left: 700px;
   margin-right: 500px;
-  background-size: cover;
+  background-size: 100% 100%;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.cover:hover{
+  width: 480px;
+  height: 110%;
+  margin-right: 650px;
+  margin-left: 650px;
+  transition: 0.4s;
+}
+
+.cover:hover .infos{
+  transform: translateX(-420px) translateY(-10px);
 }
 
 .infos{
   color: black;
-  transform: translateX(-200px);
+  transform: translateX(-400px);
   margin-top: 80px;
-  background-color: white;
-  opacity: 0.8;
   border: none;
-  border-radius: 80px;
+  transition: 0.4s;
 }
 
 .infos *{
@@ -61,6 +73,8 @@ html, body{
   font-size: 40px;
   height: 100px;
   padding: 25px;
+  font-weight: bold;
+  color: white;
 }
 
 .infos h5{
@@ -68,4 +82,38 @@ html, body{
   height: 40px;
   padding: 8px;
   margin-left: 180px;
+  font-weight: bold;
+  color: white;
+}
+
+.control-left, .control-right{
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  position: fixed;
+  color: black;
+  opacity: 0.4;
+  font-size: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.control-left:hover, .control-right:hover{
+  opacity: 1;
+}
+
+.control-left{
+  left: 140px;
+}
+
+.control-right{
+  right: 140px;
+}
+
+.left, .right{
+  border: none;
 }

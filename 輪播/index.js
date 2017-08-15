@@ -31,7 +31,7 @@ var vm = new Vue({
   data: {
     items: items,
     now_index: 0,
-    span: 1430
+    span: 1630
   },
   computed: {
     mv_left (){
@@ -42,14 +42,20 @@ var vm = new Vue({
       return result;
     }
   },
-  method: {
-    total(index){
+  methods: {
+    total (index){
       // 0 1 2 3 4 len=5
       // 4 -> 0 4在按一次變成5 = 5(leng)%5 = 0
       // 0 -> 4 0在按一次變成-1 = -1(leng)+5 = 4
       // (5(leng) + id) % 5 => id=1  -> 5+1 % 5 = 1
       //                       id=-1 -> 5-1 % 5 = 4
-      this.now_index = ()
+      this.now_index = (this.now_index + index + this.items.length)
+                        % this.items.length;
+    },
+    img (url){
+      return {
+        "background-image": "url(" + url + ")"
+      }
     }
   }
 })

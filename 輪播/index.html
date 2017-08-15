@@ -10,16 +10,22 @@
   <body>
     <div id="app">
       <div class="postarea">
-        <div class="posts" v-bind:style="mv_left">
-          <div class="postbox" v-for="index in 6">
-            <div class="cover" style="background-image: url('http://images.ali213.net/picfile/pic/2012-07-05/584_xiaoh42.jpg')">
+        <div class="posts" :style="mv_left">
+          <div class="postbox" v-for="it in items">
+            <div class="cover" :style="img(it.cover)">
               <div class="infos">
-                <h1>美少女5</h1>
-                <h5>不行了~</h5>
+                <h1>{{ it.title }}</h1>
+                <h5>{{ it.description }}</h5>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="control-left" @click="total(-1)">
+        <i class="fa fa-angle-left left"></i>
+      </div>
+      <div class="control-right" @click='total(1)'>
+        <i class="fa fa-angle-right right"></i>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
