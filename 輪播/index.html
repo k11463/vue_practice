@@ -9,6 +9,7 @@
   </head>
   <body>
     <div id="app">
+      <audio src="bgs\btn.wav" id="music"></audio>
       <div class="postarea">
         <div class="posts" :style="mv_left">
           <div class="postbox" v-for="it in items">
@@ -21,15 +22,21 @@
           </div>
         </div>
       </div>
-      <div class="control-left" @click="total(-1)">
-        <i class="fa fa-angle-left left"></i>
+      <div id="left">
+        <div class="control-left" @click="total(-1)">
+          <i class="fa fa-angle-left left"></i>
+        </div>
       </div>
-      <div class="control-right" @click='total(1)'>
-        <i class="fa fa-angle-right right"></i>
+      <div id="right">
+        <div class="control-right" @click='total(1)'>
+          <i class="fa fa-angle-right right"></i>
+        </div>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="bgs.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

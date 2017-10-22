@@ -99,7 +99,7 @@ html, body{
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 1s;
 }
 
 .control-left:hover, .control-right:hover{
